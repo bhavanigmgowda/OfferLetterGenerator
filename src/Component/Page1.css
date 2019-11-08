@@ -1,0 +1,58 @@
+#outter{
+    background: white
+}
+#pageA4{
+        background: white;
+        display: block;
+        margin: 0 auto;
+        
+        width:31cm;
+        height: 44.7cm;
+       
+}
+
+body {margin-top: 0px;margin-left: 0px;
+}
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+li{
+    font-size: x-large;
+}
+
+#outter{
+    background: white
+}
+#pageA4{
+        background: white;
+        display: block;
+        margin: 0 auto;
+        width:31cm;
+        height: 43.85cm;
+        padding-left: 35mm;
+        padding-right:35mm;
+        padding-top:25mm;
+        padding-bottom:25mm;
+      
+}
+
+body {margin-top: 0px;margin-left: 0px;
+ 
+}
+
+* {
+    font-family: sans-serif;
+}
+
+li {
+    font-size: large;
+}
+p , td,strong{
+    font-size: large;
+}
+
+@Page {
+    size:auto;
+    margin:0mm;
+}
