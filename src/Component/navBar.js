@@ -6,13 +6,19 @@ export default class NavBar extends Component {
             
         }
         return (
-            <div style={{display:"inline"}}>
-                <div style={{background: '#494d51ba'}} class="container-fluid">
-                    <nav   class="navbar navbar-expand-lg">
-                        <button style={{marginLeft: '97%'}} type="button" class="btn btn-success"><i class="fas fa-print"></i></button>
-                    </nav>
-                </div>
-            </div>
+           <div>
+           
+        <div className="jumbotron">
+  <h1 className="display-4">Hello, world!</h1>
+  <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr className="my-4" />
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+
+
+              
+           </div>
         )
     }
 }

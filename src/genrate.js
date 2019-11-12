@@ -13,12 +13,12 @@ class HtmlToPdf extends Component {
 
     convertpdf(e) {
         var pdf = document.getElementById("card-body");
-          window.print(pdf)
-      //  window.open('pdf', 'PRINT', 'height=400,width=600');
-      var file="file:///home/cbt/Desktop/React%20App.pdf"
-      var a=window.open(file);
-        
-      return false;
+        window.print(pdf)
+        //  window.open('pdf', 'PRINT', 'height=400,width=600');
+        var file = "file:///home/cbt/Desktop/React%20App.pdf"
+        var a = window.open(file);
+
+        return false;
     }
 
     convertHtmlToPdf(e) {
@@ -39,7 +39,7 @@ class HtmlToPdf extends Component {
             });
     }
     render() {
-         
+
         return (
 
             <div >
@@ -127,7 +127,7 @@ class HtmlToPdf extends Component {
                 </div>
                 <div>
 
-                    <button style={{float: "right",marginRight: "340px",marginTop: "20px"}} class="btn btn-primary" onClick={this.convertpdf.bind(this)}>Generate Pdf</button>
+                    <button style={{ float: "right", marginRight: "340px", marginTop: "20px" }} class="btn btn-primary" onClick={this.convertpdf.bind(this)}>Generate Pdf</button>
                 </div>
             </div>
         );

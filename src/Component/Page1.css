@@ -1,6 +1,4 @@
-#outter{
-    background: white
-}
+
 #pageA4{
         background: white;
         display: block;
@@ -21,11 +19,8 @@ li{
     font-size: x-large;
 }
 
-#outter{
-    background: white
-}
 #pageA4{
-        background: white;
+        background: WHITE;
         display: block;
         margin: 0 auto;
         width:31cm;

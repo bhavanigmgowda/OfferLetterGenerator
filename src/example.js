@@ -3,47 +3,47 @@ import * as jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 import jsPdf from 'jspdf'
 export default class Example extends Component {
-      constructor(props){
-          super(props);
+    constructor(props) {
+        super(props);
 
-      }
+    }
 
-    convert1=(e)=>{
+    convert1 = (e) => {
         e.preventDefault();
         debugger;
         var doc = new jsPDF()
-        var data=document.getElementById("print-button");
-       // doc.text('', 10, 10)
-          doc.fromHTML(data.innerHTML,15,15,{
-              width:190
-          })
+        var data = document.getElementById("print-button");
+        // doc.text('', 10, 10)
+        doc.fromHTML(data.innerHTML, 15, 15, {
+            width: 190
+        })
         doc.save('a4.pdf')
         doc.
-        doc.output();
+            doc.output();
 
 
         doc.output('Downloads/a4.pdf');
-       }
-       
-        
-      /*   printPDF= ()=> {
-           const domElement = document.getElementById('print-button')
-           html2canvas(domElement, { onclone: (document) => {
-             document.getElementById('print-button').style.visibility = 'hidden'
-       }})
-           .then((canvas) => {
-               const img = canvas.toDataURL('image/png')
-               const pdf = new jsPdf()
-               pdf.addImage(img, 'JPEG', 0, 0)
-               pdf.save('your-filename.pdf')
-       })
-    } */
+    }
+
+
+    /*   printPDF= ()=> {
+         const domElement = document.getElementById('print-button')
+         html2canvas(domElement, { onclone: (document) => {
+           document.getElementById('print-button').style.visibility = 'hidden'
+     }})
+         .then((canvas) => {
+             const img = canvas.toDataURL('image/png')
+             const pdf = new jsPdf()
+             pdf.addImage(img, 'JPEG', 0, 0)
+             pdf.save('your-filename.pdf')
+     })
+  } */
 
 
     render() {
         return (
             <div id="print-button">
-            
+
                 <div id="outter">
                     <div class="card" id="pageA4">
                         <div class="card-body">
@@ -128,9 +128,9 @@ export default class Example extends Component {
                 </div>
                 <div>
 
-                <button class="btn btn-primary" onClick={(e)=>this.convert1(e)} >Click Here</button>   
+                    <button class="btn btn-primary" onClick={(e) => this.convert1(e)} >Click Here</button>
                 </div>
-                   
+
             </div>
         )
     }

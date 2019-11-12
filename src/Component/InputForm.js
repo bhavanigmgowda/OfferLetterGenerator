@@ -1,44 +1,46 @@
 import React, { Component } from 'react'
-import withRouter from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import NavBar from './navBar';
+import Page1 from './Page1';
 
 export class InputForm extends Component {
 
-constructor(props){
-    super(props);
-    this.state = {
-        Name: '',
-        FatherName: '',
-        Age: '',
-        Address: '',
-        Designation: '',
-        OfferValidity: '',
-        Location: '',
-        Salary: '',
-        Date:''
-    }
-}
-
-   componentDidMount(){
-       
-    var today = new Date();
-    var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-
-
-    this.setState({
-        Date: currentdate
-    })
-      
-   }
-pass=(event) => {
-    event.preventDefault();
-    console.log("value ---"+this.state)
-            this.props.history.push({
-                pathname: '/offerLetterPage',
-                state: { employee: this.state}
-            })
-            console.log("props" + this.props.history.location.state)
+    constructor(props) {
+        super(props);
+        this.state = {
+            Name: '',
+            FatherName: '',
+            Age: '',
+            Address: '',
+            Designation: '',
+            OfferValidity: '',
+            Location: '',
+            Salary: '',
+            Date: ''
         }
+    }
+
+    componentDidMount() {
+
+        var today = new Date();
+        var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+
+
+        this.setState({
+            Date: currentdate
+        })
+
+    }
+    pass = (event) => {
+        event.preventDefault();
+        console.log("data========", this.state)
+
+        this.props.clicked(this.state)
+        this.props.history.push('/offerLetterPage')
+
+
+/*             console.log("props" + this.props.history.location.state)
+ */        }
 
     render() {
         return (
@@ -54,7 +56,7 @@ pass=(event) => {
                                                 <div className="input-group-prepend ">
                                                     <label className="input-group-text">Name</label>
                                                 </div>
-                                                <input autoComplete="off" className="form-control"  type="text" name="Name" title="Name" id="Name" placeholder="Enter Name" onChange={(event) => {
+                                                <input autoComplete="off" className="form-control" type="text" name="Name" title="Name" id="Name" placeholder="Enter Name" onChange={(event) => {
                                                     this.setState({
                                                         Name: event.target.value
                                                     })
@@ -74,13 +76,13 @@ pass=(event) => {
                                                 <div className="input-group-prepend">
                                                     <label className="input-group-text">Age</label>
                                                 </div>
-                                                <input autoComplete="off" className="form-control"  type="text" name="Age" title="Age" id="Age" placeholder="Enter Age" onChange={(event) => {
+                                                <input autoComplete="off" className="form-control" type="text" maxlength="2" name="Age" title="Age" id="Age" pattern="^0[1-9]|[1-9]\d$" required placeholder="Enter Age" onChange={(event) => {
                                                     this.setState({
                                                         Age: event.target.value
                                                     })
                                                 }} />
                                             </div>
-                                          
+
                                             <div className="input-group  mb-3">
                                                 <div className="input-group-prepend ">
                                                     <label className="input-group-text">Address</label>
@@ -95,7 +97,7 @@ pass=(event) => {
                                                 <div className="input-group-prepend">
                                                     <label className="form-control-plaintext input-group-text">State</label>
                                                 </div>
-                                                <input className="form-control border"  type="State" title="State" name="State" id="State" placeholder="Enter State"onChange={(event) => {
+                                                <input className="form-control border" type="State" title="State" name="State" id="State" placeholder="Enter State" onChange={(event) => {
                                                     this.setState({
                                                         Location: event.target.value
                                                     })
@@ -105,7 +107,7 @@ pass=(event) => {
                                                 <div className="input-group-prepend">
                                                     <label className="form-control-plaintext input-group-text">Salary</label>
                                                 </div>
-                                                <input className="form-control border"  type="number" title="Salary" name="Salary" id="Salary" placeholder="Enter Salary" onChange={(event) => {
+                                                <input className="form-control border" type="number" title="Salary" name="Salary" id="Salary" placeholder="Enter Salary" onChange={(event) => {
                                                     this.setState({
                                                         Salary: event.target.value
                                                     })
@@ -115,7 +117,7 @@ pass=(event) => {
                                                 <div className="input-group-prepend">
                                                     <label className="input-group-text">Designation</label>
                                                 </div>
-                                                <input autoComplete="off" className="form-control"  type="text" name="Designation" title="Designation" id="Designation" placeholder="Enter Designation" onChange={(event) => {
+                                                <input autoComplete="off" className="form-control" type="text" name="Designation" title="Designation" id="Designation" placeholder="Enter Designation" onChange={(event) => {
                                                     this.setState({
                                                         Designation: event.target.value
                                                     })
@@ -125,7 +127,7 @@ pass=(event) => {
                                                 <div className="input-group-prepend">
                                                     <label className="input-group-text">Offer Validity</label>
                                                 </div>
-                                                <input autoComplete="off" className="form-control"  type="text" name="OfferValidity" title="Offer Validity" id="OfferValidity" placeholder="Enter Offer Validity" onChange={(event) => {
+                                                <input autoComplete="off" className="form-control" type="text" maxlength="2" name="OfferValidity" title="Offer Validity" id="OfferValidity" placeholder="Enter Offer Validity" onChange={(event) => {
                                                     this.setState({
                                                         OfferValidity: event.target.value
                                                     })
@@ -148,4 +150,4 @@ pass=(event) => {
     }
 }
 
-export default InputForm
+export default withRouter(InputForm)
