@@ -1,0 +1,29 @@
+p , td,strong,span{
+    font-size: large;
+}
+#pageA4{
+    background: white;
+    display: block;
+    margin: 0 auto;
+    width:31cm;
+    height: 43.85cm;
+    padding-left: 35mm;
+    padding-right:35mm;
+    padding-top:25mm;
+    padding-bottom:25mm;
+  
+}
+
+body {margin-top: 0px;margin-left: 0px;
+}
+
+@Page {
+    size:auto;
+    margin: 0mm;
+}
+html *
+{
+   font-size: 20px !important;
+   color: #000 !important;
+   font-family: Arial !important;
+}
