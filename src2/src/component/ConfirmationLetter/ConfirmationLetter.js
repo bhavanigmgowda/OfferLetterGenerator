@@ -25,6 +25,7 @@ export class ConfirmationLetter extends Component {
                 <div className="card" id="pageA4">
                     <div className="card-body">
                         <div>
+                        <p style={{float:'right'}}>CIN: U72200KA2007PTC044701</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>04<sup>th</sup> June 2019</strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>

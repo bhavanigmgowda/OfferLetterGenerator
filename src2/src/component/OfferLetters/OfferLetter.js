@@ -13,6 +13,7 @@ export class OfferLetter extends Component {
                 <div className="card" id="pageA4">
                     <div className="card-body">
                         <div>
+                        <p style={{float:'right'}}>CIN: U72200KA2007PTC044701</p>
                             <p style={{ paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ paddingLeft: 30 }}>&nbsp;</p>

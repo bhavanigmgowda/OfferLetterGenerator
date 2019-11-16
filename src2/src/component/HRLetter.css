@@ -1,4 +1,4 @@
-p , td,strong,span{
+p , td,strong,span,li{
     font-size: large;
 }
 #pageA4{
@@ -23,7 +23,5 @@ body {margin-top: 0px;margin-left: 0px;
 }
 html *
 {
-   font-size: 20px !important;
-   color: #000 !important;
    font-family: Arial !important;
 }

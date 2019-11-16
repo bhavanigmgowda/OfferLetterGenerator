@@ -26,7 +26,7 @@ export class HRLetter extends Component {
         <div className="card" id="pageA4">
           <div className="card-body">
             <div>
-
+            <p style={{float:'right'}}>CIN: U72200KA2007PTC044701</p>
               <p style={{ textAlign: 'justify' }}>&nbsp;</p>
               <p style={{ textAlign: 'justify' }}>&nbsp;</p>
               <p style={{ textAlign: 'left' }} align="JUSTIFY"><span ><strong>Date: {employee.Date}</strong></span></p>

@@ -26,6 +26,7 @@ export class DesignationLetter extends Component {
                 <div className="card" id="pageA4">
                     <div className="card-body">
                         <div>
+                        <p style={{float:'right'}}>CIN: U72200KA2007PTC044701</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30,paddingRight:30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30,paddingRight:30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30,paddingRight:30 }}><strong>&nbsp;</strong><strong>07<sup>th</sup> May 2019</strong></p>

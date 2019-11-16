@@ -26,6 +26,7 @@ export class TrainingCommit extends Component {
                 <div className="card" id="pageA4">
                     <div className="card-body">
                         <div>
+                        <p style={{float:'right'}}>CIN: U72200KA2007PTC044701</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;</strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Date: 13<sup>th</sup> December 2018</strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
