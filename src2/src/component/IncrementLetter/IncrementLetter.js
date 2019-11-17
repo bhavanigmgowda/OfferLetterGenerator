@@ -3,40 +3,64 @@ import '../HRLetter.css'
 
 
 export class IncrementLetter extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {employee:{
+            employeeName: 'asdqwer',
+            employeeId: 'asdfgwe',
+            annualCompensationYear: '122345',
+            salaryIncremented: '1234567890',
+            incrementInEffectDate: '12345678',
+            companyLocation:'qwertyupkjhazxcvbnm',
+            designation:'wertyuiasbns',
+            date: '1234567',
+            CIN: '123456qwertyu',
+        }
+        }
+    }
+
+    componentDidMount() {
+
+        var today = new Date();
+        var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+        this.setState({
+            date: currentdate
+        })
+    }
+
     render() {
         return (
             <div>
                 <div className="card" id="pageA4">
                     <div className="card-body">
-                        <div>
-                        <p style={{float:'right'}}>CIN: U72200KA2007PTC044701</p>
+                       
+                        <p style={{float:'right'}}>CIN: {this.state.employee.CIN}</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;</strong></p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;10<sup>th</sup> June 2019</strong></p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;{this.state.employee.date}</strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>To<br /> <br /> </p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Jain V John,</strong></p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Employee ID: TYC051831</strong></p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong> {this.state.employee.employeeName},</strong></p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Employee ID: {this.state.employee.employeeId}</strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Subject: Increment Letter</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><br /> Dear <strong>Jain V John,<br /> <br /> </strong></p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><br /> This year has been eventful and challenging for all of us in Test Yantra Software Solution Pvt Ltd. We have met the huge challenge of scaling up our business and growing our bottom line. <br /> <br /> Your performance during this period has been rated as Exceeds Expectations. We hope that you continue to meet all challenges that we will offer you in the coming year.<br /> <br /> Further your annual compensation for the year 2019 has been enhanced to <strong>INR 2,70,011</strong> per annum effective <strong>June 1st, 2019</strong>. &nbsp;The Salary Annexure is attached along with this letter. All other terms and conditions of your letter of appointment remain unchanged.</p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><br /> Dear <strong> {this.state.employee.employeeName},<br /> <br /> </strong></p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><br /> This year has been eventful and challenging for all of us in Test Yantra Software Solution Pvt Ltd. We have met the huge challenge of scaling up our business and growing our bottom line. <br /> <br /> Your performance during this period has been rated as Exceeds Expectations. We hope that you continue to meet all challenges that we will offer you in the coming year.<br /> <br /> Further your annual compensation for the year  {this.state.employee.annualCompensationYear} has been enhanced to <strong>INR {this.state.employee.salaryIncremented}</strong> per annum effective <strong>{this.state.employee.incrementInEffectDate}</strong>. &nbsp;The Salary Annexure is attached along with this letter. All other terms and conditions of your letter of appointment remain unchanged.</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Wish you all the best.<br /> </p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Authorized Signatory </strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;</strong></p>
-                        </div>
-
                     </div>
                 </div>
 
-                <div className="card" id="pageA4">
+                <div className="card" id="AFourPage" >
                     <div className="card-body">
                         <div><table style={{ width: 800, marginLeft: 'auto', marginRight: 'auto', height: 250 }} border="1px">
                             <tbody>
@@ -47,15 +71,15 @@ export class IncrementLetter extends Component {
                                 </tr>
                                 <tr >
                                     <td style={{ width: '300px', }}>&nbsp;<strong style={{ fontSize: 'large' }}>NAME:</strong></td>
-                                    <td style={{ width: '300px', wordBreak: 'break-all' }}>&nbsp;<strong></strong></td>
+                                    <td style={{ width: '300px', wordBreak: 'break-all' }}>&nbsp;<strong>{this.state.employee.employeeName}</strong></td>
                                 </tr>
                                 <tr >
                                     <td style={{ width: '300px', }}>&nbsp;<strong style={{ fontSize: 'large' }}>DESIGNATION:</strong></td>
-                                    <td style={{ width: '300px', wordBreak: 'break-all' }}>&nbsp;<strong></strong></td>
+                                    <td style={{ width: '300px', wordBreak: 'break-all' }}>&nbsp;<strong>{this.state.employee.designation}</strong></td>
                                 </tr>
                                 <tr >
                                     <td style={{ width: '300px', }}>&nbsp;<strong style={{ fontSize: 'large' }}>LOCATION:</strong></td>
-                                    <td style={{ width: '300px', wordBreak: 'break-all' }}>&nbsp;<strong></strong></td>
+                                    <td style={{ width: '300px', wordBreak: 'break-all' }}>&nbsp;<strong>{this.state.employee.companyLocation}</strong></td>
                                 </tr>
                                 <tr >
                                     <td style={{ width: '300px', }}>&nbsp;<strong style={{ fontSize: 'large' }}>COMPANY/BUSINESS UNIT:</strong></td>

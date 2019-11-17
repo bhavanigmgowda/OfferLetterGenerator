@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { MDBInput } from "mdbreact";
 import { MDBBtn } from "mdbreact";
 
-export class InputHRLetter extends Component {
+export class InputTrainingCommit extends Component {
 
     constructor(props) {
         super(props);
@@ -142,4 +142,4 @@ export class InputHRLetter extends Component {
     }
 }
 
-export default InputHRLetter
+export default InputTrainingCommit

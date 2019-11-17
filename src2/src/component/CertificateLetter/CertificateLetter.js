@@ -7,41 +7,39 @@ export class CertificateLetter extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {employee:{
+      employeeName: 'qwer',
+      companyLocation: 'qwer',
+      certificateType: 'qwer',
+      date: '345234',
+      CIN: 'qwert',
+  }
+  }
   }
 
 
 
   render() {
-    var employee = {
-      Date: 'dadas',
-      EmployeeName: 'dda',
-      EmployeeId: 'dsadad',
-      Designation: 'dasdd',
-      CIN: 'saddada'
-
-    }
     return (
       <div>
         <div className="card" id="pageA4">
           <div className="card-body">
            
           <div>
-            <p style={{float:'right'}}>CIN: U72200KA2007PTC044701</p>
+            <p style={{float:'right'}}>CIN: {this.state.employee.CIN}</p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>&nbsp;</strong></p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>&nbsp;</strong></p>
-  <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>Date: 17th June 2019</strong></p>
+  <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>Date: {this.state.employee.date}</strong></p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>&nbsp;</strong></p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>&nbsp;</strong></p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>To,</strong></p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>&nbsp;</strong></p>
+  <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>{this.state.employee.employeeName},</strong></p>
+  <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>{this.state.employee.location}</strong></p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>&nbsp;</strong></p>
-  <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>Aragonda Nagarjuna,</strong></p>
-  <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>Bangalore</strong></p>
+  <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>Dear {this.state.employee.employeeName},</strong></p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>&nbsp;</strong></p>
-  <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>Dear Aragonda Nagarjuna,</strong></p>
-  <p style={{textAlign: 'justify', paddingLeft: 30}}><strong>&nbsp;</strong></p>
-  <p style={{textAlign: 'justify', paddingLeft: 30}}>This is to confirm that we have collected your<strong> Secondary certificate</strong> for the background verification at Test Yantra. We would return the document once the verification process is done.</p>
-  <p style={{textAlign: 'justify', paddingLeft: 30}}>&nbsp;</p>
+  <p style={{textAlign: 'justify', paddingLeft: 30}}>This is to confirm that we have collected your<strong> {this.state.employee.certificateType} certificate</strong> for the background verification at Test Yantra. We would return the document once the verification process is done.</p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}>&nbsp;</p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}>With best wishes,</p>
   <p style={{textAlign: 'justify', paddingLeft: 30}}>Very truly yours,</p>

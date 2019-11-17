@@ -7,12 +7,12 @@ export class InputHRLetter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            EmployeeName: '',
-            EmployeeId: '',
-            JoiningDate: '',
-            Date: '',
+            employeeName: '',
+            employeeId: '',
+            joiningDate: '',
+            date: '',
             CIN: '',
-            Designation:''
+            designation: ''
 
         }
     }
@@ -22,7 +22,7 @@ export class InputHRLetter extends Component {
         var today = new Date();
         var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
         this.setState({
-            Date: currentdate
+            date: currentdate
         })
     }
     pass = (event) => {
@@ -47,56 +47,48 @@ export class InputHRLetter extends Component {
                                     </div>
                                     <div className="card-body ">
                                         <form onSubmit={this.pass}>
-
                                             <div className="row">
-                                                <div className="col-12">
-                                                    <MDBInput required label="Employee Name" className="w-100" name="EmployeeName" title="Employee Name" id="EmployeeName" onChange={(event) => {
+                                                <div className="col-6">
+                                                    <MDBInput autocomplete="off" required label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
-                                                            EmployeeName: event.target.value
+                                                            employeeName: event.target.value
+                                                        })
+                                                    }} />
+                                                </div>
+                                                <div className="col-6">
+                                                    <MDBInput autocomplete="off" required label="Employee Id" name="employeeId" id="employeeId" title="Employee Id" onChange={(event) => {
+                                                        this.setState({
+                                                            employeeId: event.target.value
+                                                        })
+                                                    }} />
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-6">
+                                                    <MDBInput autocomplete="off" required label="Designation" name="designation" id="designation" title="Employee Id" onChange={(event) => {
+                                                        this.setState({
+                                                            designation: event.target.value
+                                                        })
+                                                    }} />
+
+                                                </div>
+                                                <div className="col-6">
+                                                    <MDBInput autocomplete="off" required type="date" label="Joining Date" title="Joining Date" name="Joining Date" id="joiningDate" onChange={(event) => {
+                                                        this.setState({
+                                                            joiningDate: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                             </div>
                                             <div className="row">
                                                 <div className="col-12">
-                                                    <MDBInput required label="Employee Id" name="EmployeeId" id="EmployeeId" title="Employee Id" onChange={(event) => {
-                                                        this.setState({
-                                                            EmployeeId: event.target.value
-                                                        })
-                                                    }} />
-                                                </div>
-                                            </div>
 
-                                            <div className="row">
-
-                                                    <div className="col-12">
-                                                    <MDBInput required label="Designation" name="Designation" id="Designation" title="Employee Id" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" required type="text" label="CIN" title="CIN" name="CIN" id="CIN" onChange={(event) => {
                                                         this.setState({
-                                                            Designation: event.target.value
+                                                            CIN: event.target.value
                                                         })
                                                     }} />
 
-                                                    </div>
-                                            </div>
-
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    <MDBInput required type="date" label="Joining Date" title="Joining Date" name="Joining Date" id="JoiningDate" onChange={(event) => {
-                                                        this.setState({
-                                                            JoiningDate: event.target.value
-                                                        })
-                                                    }} />
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-12">
-                                                   
-                                                        <MDBInput autocomplete="off" required type="text" label="CIN" title="CIN" name="CIN" id="CIN" onChange={(event) => {
-                                                            this.setState({
-                                                                CIN: event.target.value
-                                                            })
-                                                        }} />
-                                                
                                                 </div>
                                             </div>
                                             <div className=" input-group w-50 container-fluid">
@@ -104,7 +96,6 @@ export class InputHRLetter extends Component {
                                             </div>
                                         </form>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

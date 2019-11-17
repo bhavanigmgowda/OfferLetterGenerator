@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
-import NavBar from './navBar';
-import Page1 from './Page1';
 
 export class InputForm extends Component {
 
@@ -45,7 +43,7 @@ export class InputForm extends Component {
     render() {
         return (
             <div>
-                <div >
+              
                     <div className="container-fluid">
                         <div className="row">
                             <div id="container" className="col-auto container mt-5 pb-5">
@@ -143,11 +141,11 @@ export class InputForm extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                
             </div>
 
         )
     }
 }
 
-export default withRouter(InputForm)
+export default InputForm

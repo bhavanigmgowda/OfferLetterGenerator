@@ -12,6 +12,7 @@ export class InputDepuationLetter extends Component {
             clientLocation: '',
             reportingDate: '',
             reportingTime: '',
+            contactPerson:'',
             date: '',
             CIN: '',
         }
@@ -70,6 +71,15 @@ export class InputDepuationLetter extends Component {
                                                     <MDBInput autocomplete="off" required type="text" label="Client Location" title="Client Name" name="clientLocation" id="clientLocation" onChange={(event) => {
                                                         this.setState({
                                                             clientLocation: event.target.value
+                                                        })
+                                                    }} />
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div class="col-md-12">
+                                                    <MDBInput autocomplete="off" required type="text" label="Contact Person" title="Contact Person" name="contactPerson" id="contactPerson" onChange={(event) => {
+                                                        this.setState({
+                                                            contactPerson: event.target.value
                                                         })
                                                     }} />
                                                 </div>

@@ -1,31 +1,57 @@
 import React, { Component } from 'react'
 
 export class ExitLetter extends Component {
+
+
+    constructor(props) {
+        super(props);
+        this.state = { employee:{
+            employeeName: ' asfnjal fjalfjafj ldlsfaa',
+            designation: 'ffajj ofjaofjao dfjjofjaofja',
+            joiningDate: '12 24354 2434',
+            exitDate: '243 243 2435',
+            date: '2435 2354 235',
+            location:'qwerty',
+            CIN: '2435465767',
+        }
+    }
+    }
+
+    componentDidMount() {
+
+        var today = new Date();
+        var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+        this.setState({
+            date: currentdate
+        })
+    }
+
+
     render() {
         return (
             <div>
                 <div className="card" id="pageA4">
                     <div className="card-body">
                         <div>
-                        <p style={{float:'right'}}>CIN: U72200KA2007PTC044701</p>
+                        <p style={{float:'right'}}>CIN:  {this.state.employee.CIN}</p>
                         <p>&nbsp;</p>
                         <p>&nbsp;</p>
                         <p>&nbsp;</p>
                             <p style={{ textAlign: 'justify' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><u>EXIT AGREEMENT</u></strong></p>
                             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-                            <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}>This Exit Agreement (<strong><em>“Agreement”</em></strong>) is made and entered on this day <strong>10th &nbsp;June 2019</strong> at Bangalore</p>
+                            <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}>This Exit Agreement (<strong><em>“Agreement”</em></strong>) is made and entered on this day <strong> {this.state.employee.date}</strong> at  {this.state.employee.location}</p>
                             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                             <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong><u>BY AND BETWEEN</u></strong><strong>:</strong></p>
                             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                             <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>Test Yantra Software Solutions India Pvt. Ltd.,</strong> a company incorporated under the Companies Act, 1956, having its registered office at No. 50, 1st Floor, Brigade MLR Centre, Vani Vilas Road, Basavanagudi Bangalore – 560 004, represented by its (Human Resource) (hereinafter may be referred to as the “<strong><em>Company</em></strong>”, which expression shall, unless repugnant to the context or meaning thereof, be deemed to include its successors and permitted assigns) of the ONE PART;</p>
                             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                             <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>AND </strong></p>
-                            <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>Mr</strong> <strong>Bharath G Nandu</strong><strong>,</strong> (Hereinafter referred to as the “<strong><em>Exiting Employee</em></strong>”) which expression be deemed to include her heirs, successors, executors and permitted assigns of the OTHER PART.</p>
+                            <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>Mr/Ms.</strong> <strong> {this.state.employee.employeeName}</strong><strong>,</strong> (Hereinafter referred to as the “<strong><em>Exiting Employee</em></strong>”) which expression be deemed to include her heirs, successors, executors and permitted assigns of the OTHER PART.</p>
                             <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>WHEREAS</strong>:</p>
                             <ol type="A" style={{ textAlign: 'justify' }}>
                                 <li style={{ textAlign: 'justify' }}>The Company is engaged <em>inter alia</em> in the business of providing Quality Assurance services in the fields of enterprise, technology and services. The Company is also engaged in providing staffing and specialized staff augmentation services to various third party customers across the globe.</li>
-                                <li style={{ textAlign: 'justify' }}>Based on an interview and various representation of the Exiting Employee, the Exiting Employee was offered the role of <strong>Senior Test Engineer </strong>in the Company on <strong>21/02/2018</strong>.</li>
-                                <li style={{ textAlign: 'justify' }}>The Exiting Employee has on <strong>07th June 2019 </strong>tendered his resignation from the post of<strong> Senior Test Engineer </strong>to the Company.</li>
+                                <li style={{ textAlign: 'justify' }}>Based on an interview and various representation of the Exiting Employee, the Exiting Employee was offered the role of <strong>  {this.state.employee.designation} </strong>in the Company on <strong> {this.state.employee.joiningDate}</strong>.</li>
+                                <li style={{ textAlign: 'justify' }}>The Exiting Employee has on <strong>{this.state.employee.exitDate}</strong>tendered his resignation from the post of<strong> {this.state.employee.designation}</strong>to the Company.</li>
                                 <li style={{ textAlign: 'justify' }}>The Company and the Exiting Employee, having agreed to the terms of acceptance of the resignation of the Exiting Employee and his exit from the Company are desirous  of setting out the terms of his exit from the Company in writing.</li>
                             </ol>
                             <p style={{ textAlign: 'justify' }}><strong>&nbsp;</strong></p>
@@ -34,7 +60,7 @@ export class ExitLetter extends Component {
                             <p style={{ paddingLeft: 30, textAlign: 'justify' }}><strong>Date of Exit </strong></p>
 
                             <ol style={{ textAlign: 'justify' }} type='a'>
-                                <li style={{ textAlign: 'justify' }}>The Company hereby accepts the resignation of the Exiting Employee with effect from 07.06.2019 and the Exiting Employee agrees that his last working day with the Company shall be 07.06.2019.</li>
+                                <li style={{ textAlign: 'justify' }}>The Company hereby accepts the resignation of the Exiting Employee with effect from {this.state.employee.exitDate} and the Exiting Employee agrees that his last working day with the Company shall be {this.state.employee.exitDate}.</li>
                             </ol>
                             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
@@ -80,7 +106,7 @@ export class ExitLetter extends Component {
                                             <p style={{ paddingLeft: 10 }}>Provident Fund Dues</p>
                                         </td>
                                         <td style={{ width: '400px' }}>
-                                            <p style={{ paddingLeft: 10 }}>PF contribution till 07th &nbsp;June 2019</p>
+                                            <p style={{ paddingLeft: 10 }}>PF contribution till {this.state.employee.exitDate}</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -104,7 +130,7 @@ export class ExitLetter extends Component {
                                             <p style={{ paddingLeft: 10 }}>Salary</p>
                                         </td>
                                         <td style={{ width: '400px' }}>
-                                            <p style={{ paddingLeft: 10 }}>Till 07th &nbsp;June 2019(06 Days)</p>
+                                            <p style={{ paddingLeft: 10 }}>Till {this.state.employee.exitDate}</p>
                                         </td>
                                     </tr>
                                 </tbody>

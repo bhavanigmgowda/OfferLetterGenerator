@@ -4,7 +4,29 @@ import '../HRLetter.css'
 export class OfferLetter extends Component {
 
 
+    constructor(props) {
+        super(props);
+        this.state = {employee:{
+            employeeName: 'qwert',
+            designation: 'asdfgh',
+            companyLocation: 'asdfgh',
+            reportingDate: 'asdfg',
+            salaryOnBench: 'No salary',
+            salaryAfterDeployment: 'asdfg',
+            date: 'asdfg',
+            CIN: 'asdfgh',
+        }
+    }
+    }
 
+    componentDidMount() {
+
+        var today = new Date();
+        var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+        this.setState({
+            date: currentdate
+        })
+    }
 
 
     render() {
@@ -13,20 +35,16 @@ export class OfferLetter extends Component {
                 <div className="card" id="pageA4">
                     <div className="card-body">
                         <div>
-                        <p style={{float:'right'}}>CIN: U72200KA2007PTC044701</p>
+                        <p style={{float:'right'}}>CIN:  {this.state.employee.CIN}</p>
                             <p style={{ paddingLeft: 30 }}>&nbsp;</p>
-                            <p style={{ paddingLeft: 30 }}>&nbsp;</p>
-                            <p style={{ paddingLeft: 30 }}>&nbsp;</p>
-                            <p style={{ paddingLeft: 30 }}>&nbsp;</p>
-                            <p style={{ textAlign: 'left', paddingLeft: 30 }}><strong>24<sup>th</sup> May 2019</strong></p>
+                            <p style={{ textAlign: 'left', paddingLeft: 30 }}><strong> {this.state.employee.date}</strong></p>
                             <p style={{ paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'left', paddingLeft: 30 }}>&nbsp;</p>
-                            <p style={{ textAlign: 'left', paddingLeft: 30 }}><strong>Dear Ajay Kumar S,</strong></p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;</strong></p>
+                            <p style={{ textAlign: 'left', paddingLeft: 30 }}><strong>Dear  {this.state.employee.employeeName},</strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}>We are pleased to offer you an employment at Test Yantra Software Solutions (India) Pvt. Ltd. You have been offered as a <strong>Consultant - Software Test Engineer</strong> in our Bangalore office. We extend this offer, and the opportunity it represents, with great confidence in your abilities.&nbsp;</p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}>We are pleased to offer you an employment at Test Yantra Software Solutions (India) Pvt. Ltd. You have been offered as a <strong>{this.state.employee.designation}</strong> in our {this.state.employee.companyLocation} office. We extend this offer, and the opportunity it represents, with great confidence in your abilities.&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Your Initial Posting will be at<strong> Bangalore, India. </strong>However, your services are transferable to any other place or office of the Company or to any subsidiary or associate company; whether now existing or still to be formed. Such transfer / deputation will be in accordance with the company’s rules being in force at the time.</p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Your Initial Posting will be at<strong> {this.state.employee.companyLocation}, India. </strong>However, your services are transferable to any other place or office of the Company or to any subsidiary or associate company; whether now existing or still to be formed. Such transfer / deputation will be in accordance with the company’s rules being in force at the time.</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>You should complete and return the signed copy of your offer letter so that reference checks can be completed. Employment will be conditional on the receipt of references to the Company, prior to an agreed start date. A few original documents (or officially certified copies) must be mandatorily provided either before the commencement of employment, or no later than the morning of your first working day.</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
@@ -65,21 +83,21 @@ export class OfferLetter extends Component {
                     </div>
                 </div>
 
-                <div className="card" id="pageA4">
+                <div className="card" id="AFourPage">
                     <div className="card-body">
                         <div>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;At any given point of time, during your contract tenure, if the performance is found unsatisfactory, the company has all the rights to terminate from the service immediately without any prior notification. Based on your performance and the Company requirements, we will either extend your contract further, or may convert to fulltime Employment, else the contract period would end.&nbsp; This would be mutually discussed and in written communication prior to 7 days’ notice.</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;&nbsp; Salary Information:</p>
-                            <table style={{ width: 400, marginLeft: 30, marginRight: 'auto' }} border="1px">
+                            <table style={{ width: 500, marginLeft: 30, marginRight: 'auto' }} border="1px">
                                 <tbody>
-                                    <tr >
-                                        <td ><strong>Salary Compensation on Bench</strong></td>
-                                        <td style={{ width: 150, wordBreak: 'break-all' }}>&nbsp;</td>
+                                    <tr  >
+                                        <td style={{width:300}}><strong style={{fontWeight: 'bold'}}>Salary Compensation on Bench</strong></td>
+                                        <td >&nbsp;<strong style={{ width: 150,fontWeight: 'bold' }}>{this.state.employee.salaryOnBench}</strong></td>
                                     </tr>
                                     <tr >
-                                        <td ><strong>After Deployment</strong></td>
-                                        <td style={{ wordBreak: 'break-all' }}>&nbsp;</td>
+                                        <td ><strong style={{fontWeight: 'bold'}}>After Deployment</strong></td>
+                                        <td >&nbsp;<strong style={{fontWeight: 'bold'}}>{this.state.employee.salaryAfterDeployment}</strong></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -94,7 +112,7 @@ export class OfferLetter extends Component {
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>Authorized Signatory </strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}>&nbsp;</p>
-                            <p style={{ paddingLeft: 30, textAlign: 'left' }}>I agree to accept the conditional offer and employment on the above-mentioned terms and conditions. I’ll report for duty on<strong> 27<sup>th</sup> May 2019</strong></p>
+                            <p style={{ paddingLeft: 30, textAlign: 'left' }}>I agree to accept the conditional offer and employment on the above-mentioned terms and conditions. I’ll report for duty on <strong>{this.state.employee.reportingDate}</strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>&nbsp;</strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>&nbsp;</strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>Employee Signature</strong></p>

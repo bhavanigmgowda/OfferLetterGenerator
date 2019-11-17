@@ -11,6 +11,7 @@ export class InputExitLetter extends Component {
             designation: '',
             joiningDate: '',
             exitDate: '',
+            location:'',
             date: '',
             CIN: '',
         }
@@ -47,10 +48,17 @@ export class InputExitLetter extends Component {
                                     <div className="card-body ">
                                         <form onSubmit={this.pass}>
                                             <div class="row">
-                                                <div class="col-12">
+                                                <div class="col-6">
                                                     <MDBInput autocomplete="off" required label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
                                                             employeeName: event.target.value
+                                                        })
+                                                    }} />
+                                                </div>
+                                                <div class="col-6">
+                                                    <MDBInput autocomplete="off" required label="Company Location" className="w-100" name="commpanyLocation" title="Company Location" id="companyLocation" onChange={(event) => {
+                                                        this.setState({
+                                                            location: event.target.value
                                                         })
                                                     }} />
                                                 </div>
