@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+
+
+
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
 
