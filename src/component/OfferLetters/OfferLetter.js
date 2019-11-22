@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Home from '../home';
 import moment from 'moment';
 import '../CommonStyle.css'
-import { withRouter } from 'react-router-dom';
-
 export class OfferLetter extends Component {
 
     constructor(props) {
@@ -28,10 +26,6 @@ export class OfferLetter extends Component {
 
 
     render() {
-        if (this.props.empData == 0) {
-            this.props.history.push("/cards")
-        }
-        if (this.props.empData) {
         return (
             <div>
                 <Home buttonShow={true}/>
@@ -115,7 +109,7 @@ export class OfferLetter extends Component {
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>Authorized Signatory </strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}>&nbsp;</p>
-                            <p style={{ paddingLeft: 30, textAlign: 'left' }}>I agree to accept the conditional offer and employment on the above-mentioned terms and conditions. I’ll report for duty on <strong>{moment(this.state.employee.reportingDate).format('DD-MM-YYYY')}</strong></p>
+                            <p style={{ paddingLeft: 30, textAlign: 'left' }}>I agree to accept the conditional offer and employment on the above-mentioned terms and conditions. I’ll report for duty on <strong>{moment(this.state.employee.reportingDate).format('Do-MMMM-YYYY')}</strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>&nbsp;</strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>&nbsp;</strong></p>
                             <p style={{ paddingLeft: 30, textAlign: 'left' }}><strong>Employee Signature</strong></p>
@@ -127,10 +121,8 @@ export class OfferLetter extends Component {
                     </div>
                 </div>
             </div>
-        ) }else {
-            return (<h1></h1>)
-        }
+        )
     }
 }
 
-export default withRouter(OfferLetter)
+export default OfferLetter

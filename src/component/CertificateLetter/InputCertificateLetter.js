@@ -4,7 +4,6 @@ import { MDBBtn } from "mdbreact";
 import Home from '../home';
 import { withRouter } from 'react-router-dom';
 import $ from 'jquery'
-
 export class InputCertificateLetter extends Component {
 
     constructor(props) {
@@ -20,31 +19,45 @@ export class InputCertificateLetter extends Component {
 
             showEmployeeName: '',
             showCompanyLocation: '',
-            showCertificateType: '',
+            showCertificateType:'',
             showCIN: '',
-
         }
     }
 
     componentDidMount() {
-debugger;
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+
+      const nth = (d)=> {
+        if (d > 3 && d < 21) return 'th';
+        switch (d % 10) {
+          case 1:  return "st";
+          case 2:  return "nd";
+          case 3:  return "rd";
+          default: return "th";
+        }
+      }
+
         let today = new Date();
-        let currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+        let currentdate = today.getDate()+nth(today.getDate()) + '-' + monthNames[today.getMonth()] + '-' + today.getFullYear();
         this.setState({
-            date: currentdate
+            date:  currentdate
         })
 
-        let that = this;
+    
+        var that = this;
         $(document).ready(function () {
-            $('#generate').click(function (e) {
-                debugger;
-                let CIN = (document.getElementById("CIN").value).trim();
-                let companyLocation = (document.getElementById("companyLocation").value).trim();
-                let employeeName = (document.getElementById("employeeName").value).trim();
-                let certificateType = (document.getElementById("certificateType").value).trim();
+            $('#genrate').click(function (e) {
+                let CIN = document.getElementById("CIN").value;
+                let companyLocation = document.getElementById("companyLocation").value;
+                let employeeName = document.getElementById("employeeName").value;
+                let certificateType = document.getElementById("certificateType").value;
 
-                console.log('certificateType = ', certificateType)
-
+                console.log('certificateType = ',certificateType)
+               
 
                 if (CIN === "") {
                     that.setState({ showCIN: true })
@@ -61,7 +74,7 @@ debugger;
                     that.setState({ showEmployeeName: true })
                 }
 
-                if (CIN != "" && companyLocation != "" && certificateType != "Select an Option" && employeeName !== "") {
+                if (CIN != "" && companyLocation != "" && certificateType != "Select an Option" && employeeName !== "" ) {
                     console.log("True return")
                     return true;
 
@@ -71,8 +84,19 @@ debugger;
                 }
             });
         });
-    }
 
+
+
+
+    }
+    pass = (event) => {
+        event.preventDefault();
+        console.log("data========", this.state)
+
+        this.props.clicked(this.state)
+        this.props.history.push('/certificateLetter')
+
+    }
 
     hideEmployeeName = () => {
         this.setState({
@@ -97,19 +121,13 @@ debugger;
     }
 
 
-    pass = (event) => {
-        event.preventDefault();
-        console.log("data========", this.state)
 
-        this.props.clicked(this.state)
-        this.props.history.push('/certificateLetter')
 
-    }
 
     render() {
         return (
             <div>
-                <Home buttonShow={false} />
+                <Home buttonShow={false}/>
                 <div >
                     <div className="container-fluid mt-5">
                         <div className="row">
@@ -122,7 +140,7 @@ debugger;
                                         <form onSubmit={this.pass}>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeName}  label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
                                                             employeeName: event.target.value
                                                         })
@@ -139,6 +157,8 @@ debugger;
                                             <div className="row" style={{padding:0}}>
                                                <div className="col-6 p-0" >
                                                {this.state.showEmployeeName ? <div id="errordiv" className="container-fluid">Please fill out employee Name field * </div> : null}
+                                           
+                                           
                                                </div>
                                                <div className="col-6 p-0" style={{width:0}}>
                                                {this.state.showCompanyLocation ? <div id="errordiv" className="container-fluid">Please fill out company Location field * </div> : null}
@@ -152,8 +172,8 @@ debugger;
                                                         })
                                                     }} />
                                                 </div>
-                                                <div class="col-md-6" style={{ paddingTop: '25px' }}>
-                                                    <select onClick={this.hideCertificateType} class="browser-default custom-select" autocomplete="off"  label="Certificate Type" name="certificateType" title="Certificate Type" id="certificateType" onChange={(event) => {
+                                                <div  class="col-md-6" style={{paddingTop:'25px'}}>
+                                                    <select onClick={this.hideCertificateType}  class="browser-default custom-select" autocomplete="off"  label="Certificate Type"  name="certificateType" title="Certificate Type" id="certificateType" onChange={(event) => {
                                                         this.setState({
                                                             certificateType: event.target.value
                                                         })
@@ -178,7 +198,7 @@ debugger;
                                                </div>
                                            </div>
                                             <div className=" input-group w-50 container-fluid">
-                                                <MDBBtn id="generate" type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>
+                                                <MDBBtn ID="genrate" type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>
                                             </div>
                                         </form>
                                     </div>

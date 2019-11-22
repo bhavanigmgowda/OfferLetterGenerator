@@ -1,11 +1,41 @@
 import React, { Component } from 'react';
 import '../IncrementLetter/test.css';
 import { BrowserRouter as Router, Route, withRouter,Link } from 'react-router-dom'
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 export default class Test1  extends Component {
+
+
+  // Create styles
+
+
   render() {
+    const styles = StyleSheet.create({
+      page: {
+        flexDirection: 'row',
+        backgroundColor: '#E4E4E4'
+      },
+      section: {
+        margin: 10,
+        padding: 10,
+        flexGrow: 1
+      }
+    });
     return (
       <div>
-           <div>
+
+<Document>
+    <Page size="A4" style={styles.page}>
+      <View style={styles.section}>
+        <Text>Section #1</Text>
+      </View>
+      <View style={styles.section}>
+        <Text>Section #2</Text>
+      </View>
+    </Page>
+  </Document>
+
+
+       {/*     <div>
   <nav className="navbar navbar-expand navbar-dark bg-primary"> 
  
 <div class="btn-group">
@@ -38,7 +68,15 @@ export default class Test1  extends Component {
     </div>
   </nav>
      
-      </div>
+      </div> */}
+
+     
+
+
+
+
+
+
         
       </div>
     );

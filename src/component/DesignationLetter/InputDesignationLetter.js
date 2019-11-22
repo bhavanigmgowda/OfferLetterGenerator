@@ -49,19 +49,35 @@ export class InputDesignationLetter extends Component {
 
     componentDidMount() {
 
-        var today = new Date();
-        var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+      const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+
+      const nth = (d)=> {
+        if (d > 3 && d < 21) return 'th';
+        switch (d % 10) {
+          case 1:  return "st";
+          case 2:  return "nd";
+          case 3:  return "rd";
+          default: return "th";
+        }
+      }
+
+        let today = new Date();
+        let currentdate = today.getDate()+nth(today.getDate()) + '-' + monthNames[today.getMonth()] + '-' + today.getFullYear();
         this.setState({
-            date: currentdate
+            date:  currentdate
         })
 
         var that = this;
         $(document).ready(function () {
-            $('#generate').click(function (e) {
-                let employeeName = (document.getElementById("employeeName").value).trim();
-                let employeeId = (document.getElementById("employeeId").value).trim();
-                let newDesignation = (document.getElementById("newDesignation").value).trim();
-                let CIN = (document.getElementById("CIN").value).trim();
+            $('#genrate').click(function (e) {
+                let employeeName = document.getElementById("employeeName").value;
+                let employeeId = document.getElementById("employeeId").value;
+                let newDesignation = document.getElementById("newDesignation").value;
+                let CIN = document.getElementById("CIN").value;
+
                
 
                 if (CIN === "") {
@@ -152,7 +168,7 @@ export class InputDesignationLetter extends Component {
 
                                                 </div>
                                             </div>
-                                            {this.state.showNewDesignation ? <div id="errordiv" className="container-fluid p-0">Please fill out Designation field * </div> : null}
+                                            {this.state.showNewDesignation ? <div id="errordiv" className="container-fluid">Please fill out Designation field * </div> : null}
                                             <div className="row">
                                                 <div className="col-12">
 
@@ -164,9 +180,9 @@ export class InputDesignationLetter extends Component {
 
                                                 </div>
                                             </div>
-                                            {this.state.showCIN ? <div id="errordiv" className="container-fluid p-0">Please fill out CIN field * </div> : null}
+                                            {this.state.showCIN ? <div id="errordiv" className="container-fluid">Please fill out CIN field * </div> : null}
                                             <div className=" input-group w-50 container-fluid">
-                                                <MDBBtn id="generate" type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>
+                                                <MDBBtn id="genrate" type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>
                                             </div>
                                             
                                         </form>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Home from '../home';
 import moment from 'moment';
-import { withRouter } from 'react-router-dom';
+
 
 export class IncrementLetter extends Component {
 
@@ -22,11 +22,6 @@ export class IncrementLetter extends Component {
           }
 
     render() {
-
-        if (this.props.empData == 0) {
-            this.props.history.push("/cards")
-        }
-        if (this.props.empData) {
         return (
             <div>
                 <Home buttonShow={true}/>
@@ -48,7 +43,7 @@ export class IncrementLetter extends Component {
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Subject: Increment Letter</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><br /> Dear <strong> {this.state.employee.employeeName},<br /> <br /> </strong></p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><br /> This year has been eventful and challenging for all of us in Test Yantra Software Solution Pvt Ltd. We have met the huge challenge of scaling up our business and growing our bottom line. <br /> <br /> Your performance during this period has been rated as Exceeds Expectations. We hope that you continue to meet all challenges that we will offer you in the coming year.<br /> <br /> Further your annual compensation for the year  {this.state.employee.annualCompensationYear} has been enhanced to <strong>INR {this.state.employee.salaryIncremented}</strong> per annum effective <strong>{moment(this.state.employee.incrementInEffectDate).format('DD-MM-YYYY')}</strong>. &nbsp;The Salary Annexure is attached along with this letter. All other terms and conditions of your letter of appointment remain unchanged.</p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><br /> This year has been eventful and challenging for all of us in Test Yantra Software Solution Pvt Ltd. We have met the huge challenge of scaling up our business and growing our bottom line. <br /> <br /> Your performance during this period has been rated as Exceeds Expectations. We hope that you continue to meet all challenges that we will offer you in the coming year.<br /> <br /> Further your annual compensation for the year  {this.state.employee.annualCompensationYear} has been enhanced to <strong>INR {this.state.employee.salaryIncremented}</strong> per annum effective <strong>{moment(this.state.employee.incrementInEffectDate).format('Do-MMMM-YYYY')}</strong>. &nbsp;The Salary Annexure is attached along with this letter. All other terms and conditions of your letter of appointment remain unchanged.</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Wish you all the best.<br /> </p>
@@ -202,10 +197,7 @@ export class IncrementLetter extends Component {
                 </div>
             </div>
         )
-    }else {
-        return (<h1></h1>)
     }
 }
-}
 
-export default withRouter(IncrementLetter)
+export default IncrementLetter

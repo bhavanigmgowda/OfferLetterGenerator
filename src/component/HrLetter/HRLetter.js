@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import Home from '../home';
 import Test from '../IncrementLetter/test';
 import '../CommonStyle.css'
-import moment from 'moment';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
+
 
 export class HRLetter extends Component {
 
@@ -11,27 +12,39 @@ export class HRLetter extends Component {
     super(props);
       
     this.state={
-       employee:[]
+       employee:[ ]
     }
+
   }
 
   componentDidMount(){
 
     this.setState({
       employee: this.props.empData,
-    })
-  console.log("DDDDDDDDDDDDDDDDDDd",this.props.empData)
+  })
     
-   
+    if(this.props.empData==0)
+    {
+        this.props.history.push("/cards")
+    }
+    
+
+  /* this.setState({
+    employee:this.props.empData,
+},()=>{this.setState({
+  Date: moment(this.state.employee.joiningDate).format('DD-MM-YYYY')
+
+})}) */
+    
+    // console.log("data hr form ",this.props.history.location.state.employee);
      console.log("data hr form  state ",this.state.employee);
 
   }
 
+
+
   render() {
-    if (this.props.empData == 0) {
-      this.props.history.push("/cards")
-  }
-    if(this.props.empData){
+    
     return (
       <div>
         <Home  buttonShow={true}/>
@@ -49,7 +62,7 @@ export class HRLetter extends Component {
               <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY"><span ><strong>Sub: Information as per HR Records</strong></span></p>
               <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }}>&nbsp;</p>
               <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }}>&nbsp;</p>
-    <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY"><span >This is to inform that </span><span ><strong>{this.state.employee.salute} {this.state.employee.employeeName} </strong></span><span >(Employee ID: {this.state.employee.employeeId}) is an employee of Test Yantra Software Solutions (India) Pvt Ltd from </span><span ><strong>{ moment(this.state.employee.joiningDate).format('DD-MM-YYYY')} </strong></span><span > to till Date. {this.props.empData.gender.gender1} is designated as {this.state.employee.designation}. </span></p>
+              <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY"><span >This is to inform that </span><span ><strong>{this.state.employee.employeeName} </strong></span><span >(Employee ID: {this.state.employee.employeeId}) is an employee of Test Yantra Software Solutions (India) Pvt Ltd from </span><span ><strong>{ moment(this.state.employee.joiningDate).format('Do-MMMM-YYYY')} </strong></span><span > to till Date. He is designated as {this.state.employee.designation}. </span></p>
               <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY">&nbsp;</p>
               <p lang="en-IN" style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }}>&nbsp;</p>
               <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY"><span >For Test Yantra Software Solutions (India) Pvt Ltd</span></p>
@@ -63,12 +76,8 @@ export class HRLetter extends Component {
           </div>
         </div>
       </div>
+
     )
-  } else {
-    return (
-        <h1></h1>)
   }
 }
-}
-
 export default withRouter(HRLetter)

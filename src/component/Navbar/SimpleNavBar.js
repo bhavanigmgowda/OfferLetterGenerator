@@ -12,7 +12,7 @@ class SimpleNavBar extends Component {
 render() {
   return (
     <Router>
-      <MDBNavbar  style={{backgroundColor:"#343A40"}}  dark expand="md">
+      <MDBNavbar  style={{backgroundColor:"rgb(66, 133, 244)"}}  dark expand="md">
         <MDBNavbarBrand>
           <Link to="/" className="white-text">E-Letter</Link>
         </MDBNavbarBrand>

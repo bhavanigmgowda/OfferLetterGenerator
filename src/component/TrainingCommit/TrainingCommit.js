@@ -29,10 +29,6 @@ import '../CommonStyle.css'
 
 
     render() {
-        if (this.props.empData == 0) {
-            this.props.history.push("/cards")
-        }
-        if (this.props.empData) {
         return (
             <div>
                 <Home buttonShow={true}/>
@@ -49,13 +45,13 @@ import '../CommonStyle.css'
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;Subject: Training&nbsp; </strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>&nbsp;</strong></p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I am <strong> {this.state.employee.employeeName} </strong>working in Test Yantra Software Solutions Pvt Ltd or Qspiders or Jspiders (u/o) Test Yantra Software Solutions Pvt Ltd as <strong> {this.state.employee.designation}</strong> from <strong>{moment(this.state.employee.trainingStartDate).format('DD-MM-YYYY')}.</strong></p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I am <strong> {this.state.employee.employeeName} </strong>working in Test Yantra Software Solutions Pvt Ltd or Qspiders or Jspiders (u/o) Test Yantra Software Solutions Pvt Ltd as <strong> {this.state.employee.designation}</strong> from <strong> {this.state.employee.joiningDate}.</strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>I am willing to undergo training in<strong>  {this.state.employee.courseName}</strong>. I would request you to permit me to take the course at Qspiders / JSpiders. Below is the details of Course and period of Training.</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Course Name</strong>: <strong> {this.state.employee.courseName}</strong></p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Training Start Date</strong>: <strong>{moment(this.state.employee.trainingStartDate).format('DD-MM-YYYY')}</strong></p>
-                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Training End Date:  {moment(this.state.employee.trainingEndDate).format('DD-MM-YYYY')}</strong></p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Training Start Date</strong>: <strong>{moment(this.state.employee.trainingStartDate).format('Do-MMMM-YYYY')}</strong></p>
+                            <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Training End Date:  {moment(this.state.employee.trainingEndDate).format('Do-MMMM-YYYY')}</strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>SPOC</strong></p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}><strong>Location:</strong>  {this.state.employee.branchName},  {this.state.employee.branchLocation}</p>
                             <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
@@ -100,11 +96,7 @@ import '../CommonStyle.css'
             </div>
 
         )
-    } else {
-        return (<h1></h1>)
     }
-}
-
 }
 
 export default withRouter(TrainingCommit)

@@ -34,22 +34,39 @@ export class InputOfferLetter extends Component {
 
     componentDidMount() {
 
-        var today = new Date();
-        var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-        this.setState({
-            date: currentdate
-        })
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+
+        const nth = (d)=> {
+            if (d > 3 && d < 21) return 'th';
+            switch (d % 10) {
+              case 1:  return "st";
+              case 2:  return "nd";
+              case 3:  return "rd";
+              default: return "th";
+            }
+          }
+    
+            let today = new Date();
+            let currentdate = today.getDate()+nth(today.getDate()) + '-' + monthNames[today.getMonth()] + '-' + today.getFullYear();
+            this.setState({
+                date:  currentdate
+            })
+    
    
         var that = this;
         $(document).ready(function () {
             $('#genrate').click(function (e) {
-                let employeeName = (document.getElementById("employeeName").value).trim();
-                let designation = (document.getElementById("designation").value).trim();
-                let companyLocation = (document.getElementById("companyLocation").value).trim();
-                let CIN = (document.getElementById("CIN").value).trim();
-                let reportingDate = (document.getElementById("reportingDate").value).trim();
-                let salaryOnBench = (document.getElementById("salaryOnBench").value).trim();
-                let salaryAfterDeployment = (document.getElementById("salaryAfterDeployment").value).trim();
+                let employeeName = document.getElementById("employeeName").value;
+                let designation = document.getElementById("designation").value;
+                let companyLocation = document.getElementById("companyLocation").value;
+                let CIN = document.getElementById("CIN").value;
+                let reportingDate = document.getElementById("reportingDate").value;
+                let salaryOnBench = document.getElementById("salaryOnBench").value;
+                let salaryAfterDeployment = document.getElementById("salaryAfterDeployment").value;
 
                 if (CIN === "") {
                     that.setState({ showCIN: true })
@@ -165,7 +182,7 @@ export class InputOfferLetter extends Component {
                                             </div>
                                             <div className="row" style={{padding:0}}>
                                                <div className="col-6 p-0" >
-                                               {this.state.showEmployeeName ? <div id="errordiv" className="container-fluid">Please fill out Employee Name field * </div> : null}
+                                               {this.state.showEmployeeName ? <div id="errordiv" className="container-fluid">Please fill out Name field * </div> : null}
                                            
                                            
                                                </div>
@@ -223,7 +240,7 @@ export class InputOfferLetter extends Component {
                                            
                                                </div>
                                                <div className="col-6 p-0" style={{width:0}}>
-                                               {this.state.showSalaryAfterDeployment ? <div id="errordiv" className="container-fluid">Please fill out Salary After Deployment field* </div> : null}
+                                               {this.state.showSalaryAfterDeployment ? <div id="errordiv" className="container-fluid">Please fill out Salary After Deployment field * </div> : null}
                                                </div>
                                            </div>
                                             <div className="row">

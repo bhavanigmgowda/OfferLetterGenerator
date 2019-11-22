@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Home from '../home';
 import moment from 'moment';
 import '../CommonStyle.css'
-import { withRouter } from 'react-router-dom';
-
 export class ExitLetter extends Component {
    
     constructor(props) {
@@ -12,6 +10,7 @@ export class ExitLetter extends Component {
         this.state={
            employee:[ ]
         }
+    
       }
     
       componentDidMount(){
@@ -30,10 +29,6 @@ export class ExitLetter extends Component {
    
    
     render() {
-        if (this.props.empData == 0) {
-            this.props.history.push("/cards")
-        }
-        if (this.props.empData) {
         return (
             <div>
                 <Home buttonShow={true}/>
@@ -53,13 +48,13 @@ export class ExitLetter extends Component {
                             <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>Test Yantra Software Solutions India Pvt. Ltd.,</strong> a company incorporated under the Companies Act, 1956, having its registered office at No. 50, 1st Floor, Brigade MLR Centre, Vani Vilas Road, Basavanagudi Bangalore – 560 004, represented by its (Human Resource) (hereinafter may be referred to as the “<strong><em>Company</em></strong>”, which expression shall, unless repugnant to the context or meaning thereof, be deemed to include its successors and permitted assigns) of the ONE PART;</p>
                             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                             <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>AND </strong></p>
-                            <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>{this.state.employee.salute}</strong> <strong> {this.state.employee.employeeName}</strong><strong>,</strong> (Hereinafter referred to as the “<strong><em>Exiting Employee</em></strong>”) which expression be deemed to include {this.props.empData.gender.gender2} heirs, successors, executors and permitted assigns of the OTHER PART.</p>
+                            <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>Mr/Ms.</strong> <strong> {this.state.employee.employeeName}</strong><strong>,</strong> (Hereinafter referred to as the “<strong><em>Exiting Employee</em></strong>”) which expression be deemed to include her heirs, successors, executors and permitted assigns of the OTHER PART.</p>
                             <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>WHEREAS</strong>:</p>
                             <ol type="A" style={{ textAlign: 'justify' }}>
                                 <li style={{ textAlign: 'justify' }}>The Company is engaged <em>inter alia</em> in the business of providing Quality Assurance services in the fields of enterprise, technology and services.The Company is also engaged in providing staffing and specialized staff augmentation services to various third party customers across the globe.</li>
-                                <li style={{ textAlign: 'justify' }}>Based on an interview and various representation of the Exiting Employee, the Exiting Employee was offered the role of <strong>  {this.state.employee.designation} </strong>in the Company on <strong> {moment(this.state.employee.joiningDate).format('DD-MM-YYYY')}</strong>.</li>
-                                <li style={{ textAlign: 'justify' }}>The Exiting Employee has on <strong>{moment(this.state.employee.exitDate).format('DD-MM-YYYY')}</strong> tendered {this.props.empData.gender.gender2} resignation from the post of<strong> {this.state.employee.designation}</strong> to the Company.</li>
-                                <li style={{ textAlign: 'justify' }}>The Company and the Exiting Employee, having agreed to the terms of acceptance of the resignation of the Exiting Employee and {this.props.empData.gender.gender2} exit from the Company are desirous of setting out the terms of {this.props.empData.gender.gender2} exit from the Company in writing.</li>
+                                <li style={{ textAlign: 'justify' }}>Based on an interview and various representation of the Exiting Employee, the Exiting Employee was offered the role of <strong>  {this.state.employee.designation} </strong>in the Company on <strong> {moment(this.state.employee.joiningDate).format('Do-MMMM-YYYY')}</strong>.</li>
+                                <li style={{ textAlign: 'justify' }}>The Exiting Employee has on <strong>{moment(this.state.employee.exitDate).format('Do-MMMM-YYYY')}</strong> tendered his resignation from the post of<strong> {this.state.employee.designation}</strong> to the Company.</li>
+                                <li style={{ textAlign: 'justify' }}>The Company and the Exiting Employee, having agreed to the terms of acceptance of the resignation of the Exiting Employee and his exit from the Company are desirous  of setting out the terms of his exit from the Company in writing.</li>
                             </ol>
                             <p style={{ textAlign: 'justify' }}><strong>&nbsp;</strong></p>
                             <p style={{ paddingLeft: 20, paddingRight: 20, textAlign: 'justify' }}><strong>NOW THEREFORE THIS AGREEMENT WITNESSETH AS UNDER:</strong></p>
@@ -67,7 +62,7 @@ export class ExitLetter extends Component {
                             <p style={{ paddingLeft: 30, textAlign: 'justify' }}><strong>Date of Exit </strong></p>
 
                             <ol style={{ textAlign: 'justify' }} type='a'>
-                                <li style={{ textAlign: 'justify' }}>The Company hereby accepts the resignation of the Exiting Employee with effect from {moment(this.state.employee.exitDate).format('DD-MM-YYYY')} and the Exiting Employee agrees that {this.props.empData.gender.gender2} last working day with the Company shall be {moment(this.state.employee.exitDate).format('DD-MM-YYYY')}.</li>
+                                <li style={{ textAlign: 'justify' }}>The Company hereby accepts the resignation of the Exiting Employee with effect from {moment(this.state.employee.exitDate).format('Do-MMMM-YYYY')} and the Exiting Employee agrees that his last working day with the Company shall be {moment(this.state.employee.exitDate).format('Do-MMMM-YYYY')}.</li>
                             </ol>
                             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
                             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
@@ -113,7 +108,7 @@ export class ExitLetter extends Component {
                                             <p style={{ paddingLeft: 10 }}>Provident Fund Dues</p>
                                         </td>
                                         <td style={{ width: '400px', textAlign: 'left' }}>
-                                            <p style={{ paddingLeft: 10 }}>PF contribution till {moment(this.state.employee.exitDate).format('DD-MM-YYYY')}</p>
+                                            <p style={{ paddingLeft: 10 }}>PF contribution till {moment(this.state.employee.exitDate).format('Do-MMMM-YYYY')}</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -137,7 +132,7 @@ export class ExitLetter extends Component {
                                             <p style={{ paddingLeft: 10 }}>Salary</p>
                                         </td>
                                         <td style={{ width: '400px' , textAlign: 'left'}}>
-                                            <p style={{ paddingLeft: 10 }}>Till {moment(this.state.employee.exitDate).format('DD-MM-YYYY')}</p>
+                                            <p style={{ paddingLeft: 10 }}>Till {moment(this.state.employee.exitDate).format('Do-MMMM-YYYY')}</p>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -268,16 +263,20 @@ export class ExitLetter extends Component {
                             <p className="western">&nbsp;</p>
                             <p className="western">&nbsp;</p>
                             <p className="western">&nbsp;</p>
+
+
                         </div>
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
-        ) }
-         else {
-            return (<h1></h1>)
-        }
+        )
     }
-    
 }
 
-export default withRouter(ExitLetter)
+export default ExitLetter

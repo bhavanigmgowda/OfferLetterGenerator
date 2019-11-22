@@ -53,21 +53,21 @@ export class App extends Component{
             })
           }
           
-//  emp=(data)=>{
-//   console.log("==============",data)
-//   this.setState({
-//     emp :data
-//   },()=>this.props.history.push("/TrainingCommit"))
+ emp=(data)=>{
+  console.log("==============",data)
+  this.setState({
+    emp :data
+  },()=>this.props.history.push("/TrainingCommit"))
   
-// }
+}
 
-// emp2=(data)=>{
-//   console.log("==============",data)
-//   this.setState({
-//     emp :data
-//   },()=>this.props.history.push("/TrainingLetter"))
+emp2=(data)=>{
+  console.log("==============",data)
+  this.setState({
+    emp :data
+  },()=>this.props.history.push("/TrainingLetter"))
   
-// }
+}
  
 
     render(){
@@ -102,18 +102,26 @@ export class App extends Component{
       <Route exact path='/InputOfferLetter'  render={() => { return <InputOfferLetter clicked={this.employee.bind()} /> }} ></Route>
       <Route exact path='/OfferLetter' render={() => { return <OfferLetter empData={this.state.emp} /> }}></Route>
    
+   
       <Route exact path='/InputRelivingLetter'  render={() => { return <InputRelivingLetter clicked={this.employee.bind()} /> }} ></Route>
       <Route exact path='/RelivingLetter' render={() => { return <RelivingLetter empData={this.state.emp} /> }}></Route>
 
-      <Route exact path='/InputTrainingCommitLetter' render={() => { return <InputTrainingCommitLetter history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/TrainingCommit'  render={() => { return <TrainingCommit history={this.props.history} empData={this.state.emp} /> }} ></Route>
+      <Route exact path='/InputTrainingCommitLetter' render={() => { return <InputTrainingCommitLetter clicked={this.emp.bind()} /> }} ></Route>
+      <Route exact path='/TrainingCommit'  render={() => { return <TrainingCommit empData={this.state.emp} /> }} ></Route>
 
-      <Route exact path='/InputTrainingLetter' render={() => { return <InputTrainingLetter history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/TrainingLetter'  render={() => { return <TrainingLetter history={this.props.history} empData={this.state.emp} /> }} ></Route>
+      <Route exact path='/InputTrainingLetter' render={() => { return <InputTrainingLetter clicked={this.emp2.bind()} /> }} ></Route>
+      <Route exact path='/TrainingLetter'  render={() => { return <TrainingLetter empData={this.state.emp} /> }} ></Route>
+
+
 
       <Route exact path='/InputExitLetter' render={() => { return <InputExitLetter clicked={this.employee.bind()} /> }} ></Route>
       <Route exact path='/ExitLetter'  render={() => { return <ExitLetter empData={this.state.emp} /> }} ></Route>
 
+
+
+
+
+   
 
       
 

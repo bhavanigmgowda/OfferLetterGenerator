@@ -29,28 +29,44 @@ export class InputIncrementLetter extends Component {
             showDesignation:'',
             showCIN: '',
 
+
         }
     }
 
     componentDidMount() {
 
-        var today = new Date();
-        var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+
+      const nth = (d)=> {
+        if (d > 3 && d < 21) return 'th';
+        switch (d % 10) {
+          case 1:  return "st";
+          case 2:  return "nd";
+          case 3:  return "rd";
+          default: return "th";
+        }
+      }
+
+        let today = new Date();
+        let currentdate = today.getDate()+nth(today.getDate()) + '-' + monthNames[today.getMonth()] + '-' + today.getFullYear();
         this.setState({
-            date: currentdate
+            date:  currentdate
         })
         
         var that = this;
         $(document).ready(function () {
             $('#genrate').click(function (e) {
-                let employeeName = (document.getElementById("employeeName").value).trim();
-                let designation = (document.getElementById("designation").value).trim();
-                let employeeId = (document.getElementById("employeeId").value).trim();
-                let annualCompensationYear = (document.getElementById("annualCompensationYear").value).trim();
-                let incrementInEffectDate = (document.getElementById("incrementInEffectDate").value).trim();
-                let companyLocation = (document.getElementById("companyLocation").value).trim();
-                let salaryIncrement = (document.getElementById("salaryIncrement").value).trim();
-                let CIN = (document.getElementById("CIN").value).trim();
+                let employeeName = document.getElementById("employeeName").value;
+                let designation = document.getElementById("designation").value;
+                let employeeId = document.getElementById("employeeId").value;
+                let annualCompensationYear = document.getElementById("annualCompensationYear").value;
+                let incrementInEffectDate = document.getElementById("incrementInEffectDate").value;
+                let companyLocation = document.getElementById("companyLocation").value;
+                let salaryIncrement = document.getElementById("salaryIncrement").value;
+                let CIN = document.getElementById("CIN").value;
 
                
 
@@ -157,7 +173,7 @@ export class InputIncrementLetter extends Component {
                     <div className="container-fluid mt-5">
                         <div className="row">
                             <div className="col-auto container mt-5 pb-5">
-                                <div style={{ width: '500px' }} className="card m-auto shadow-lg mt-5">
+                                <div style={{ width: '600px' }} className="card m-auto shadow-lg mt-5">
                                     <div class="card-header" style={{ borderRadius: '0px !important', background: 'white' }} >
                                         <h3 className="text-center blue-text font-bold ">Increment Letter</h3>
                                     </div>
@@ -181,12 +197,12 @@ export class InputIncrementLetter extends Component {
                                             </div>
                                             <div className="row" style={{padding:0}}>
                                                <div className="col-6 p-0" >
-                                               {this.state.showEmployeeName ? <div id="errordiv" className="container-fluid">Please fill out Employee Name field * </div> : null}
+                                               {this.state.showEmployeeName ? <div id="errordiv" className="container-fluid">Please fill out Name field * </div> : null}
                                            
                                            
                                                </div>
                                                <div className="col-6 p-0" style={{width:0}}>
-                                               {this.state.showEmployeeId ? <div id="errordiv" className="container-fluid">Please fill out Employee ID field * </div> : null}
+                                               {this.state.showEmployeeId ? <div id="errordiv" className="container-fluid">Please fill out ID field * </div> : null}
                                                </div>
                                            </div>
                                             <div class="row">
@@ -209,12 +225,12 @@ export class InputIncrementLetter extends Component {
                                             </div>
                                             <div className="row" style={{padding:0}}>
                                                <div className="col-6 p-0" >
-                                               {this.state.showDesignation ? <div id="errordiv" className="container-fluid">Please fill out Designation field * </div> : null}
+                                               {this.state.showDesignation ? <div id="errordiv" className="container-fluid">Please fill out Name field * </div> : null}
                                            
                                            
                                                </div>
                                                <div className="col-6 p-0" style={{width:0}}>
-                                               {this.state.showCompanyLocation ? <div id="errordiv" className="container-fluid">Please fill out Company Location field * </div> : null}
+                                               {this.state.showCompanyLocation ? <div id="errordiv" className="container-fluid">Please fill out ID field * </div> : null}
                                                </div>
                                            </div>
 
@@ -237,12 +253,12 @@ export class InputIncrementLetter extends Component {
                                             </div>
                                             <div className="row" style={{padding:0}}>
                                                <div className="col-6 p-0" >
-                                               {this.state.showSalaryIncremented ? <div id="errordiv" className="container-fluid">Please fill out salary Increment field * </div> : null}
+                                               {this.state.showSalaryIncremented ? <div id="errordiv" className="container-fluid">Please fill out Name field * </div> : null}
                                            
                                            
                                                </div>
                                                <div className="col-6 p-0" style={{width:0}}>
-                                               {this.state.showIncrementInEffectDate ? <div id="errordiv" className="container-fluid">Please fill out Increment Effect Date field * </div> : null}
+                                               {this.state.showIncrementInEffectDate ? <div id="errordiv" className="container-fluid">Please fill out ID field * </div> : null}
                                                </div>
                                            </div>
                                             <div className="row">
@@ -267,12 +283,12 @@ export class InputIncrementLetter extends Component {
                                             </div>
                                             <div className="row" style={{padding:0}}>
                                                <div className="col-6 p-0" >
-                                               {this.state.showAnnualCompensationYear ? <div id="errordiv" className="container-fluid">Please fill out Compensation Year field * </div> : null}
+                                               {this.state.showAnnualCompensationYear ? <div id="errordiv" className="container-fluid">Please fill out Name field * </div> : null}
                                            
                                            
                                                </div>
                                                <div className="col-6 p-0" style={{width:0}}>
-                                               {this.state.showCIN ? <div id="errordiv" className="container-fluid">Please fill out CIN field * </div> : null}
+                                               {this.state.showCIN ? <div id="errordiv" className="container-fluid">Please fill out ID field * </div> : null}
                                                </div>
                                            </div>
                                             <div className=" input-group w-50 container-fluid">

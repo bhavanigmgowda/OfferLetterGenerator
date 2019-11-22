@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { MDBInput } from "mdbreact";
 import { MDBBtn } from "mdbreact";
 import Home from '../home';
+import '../ConfirmationLetter/InputConfirmationLetter.css'
 import { withRouter } from 'react-router-dom';
 import $ from 'jquery'
 
@@ -31,21 +32,39 @@ export class InputConfirmationLetter extends Component {
 
     componentDidMount() {
 
-        var today = new Date();
-        var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+
+      const nth = (d)=> {
+        if (d > 3 && d < 21) return 'th';
+        switch (d % 10) {
+          case 1:  return "st";
+          case 2:  return "nd";
+          case 3:  return "rd";
+          default: return "th";
+        }
+      }
+
+        let today = new Date();
+        let currentdate = today.getDate()+nth(today.getDate()) + '-' + monthNames[today.getMonth()] + '-' + today.getFullYear();
         this.setState({
-            date: currentdate
+            date:  currentdate
         })
+
+
+
 
         var that = this;
         $(document).ready(function () {
-            $('#generate').click(function (e) {
-                let CIN = (document.getElementById("CIN").value).trim();
-                let joiningDate = (document.getElementById("joiningDate").value).trim();
-                let designation = (document.getElementById("designation").value).trim();
-                let employeeId = (document.getElementById("employeeId").value).trim();
-                let employeeName = (document.getElementById("employeeName").value).trim();
-                let ProbationEndDate = (document.getElementById("probationEndDate").value).trim();
+            $('#genrate').click(function (e) {
+                let CIN = document.getElementById("CIN").value;
+                let joiningDate = document.getElementById("joiningDate").value;
+                let designation = document.getElementById("designation").value;
+                let employeeId = document.getElementById("employeeId").value;
+                let employeeName = document.getElementById("employeeName").value;
+                let ProbationEndDate = document.getElementById("probationEndDate").value;
 
                 console.log("Inside Validation", CIN, joiningDate, employeeName,designation,employeeId);
 
@@ -80,6 +99,11 @@ export class InputConfirmationLetter extends Component {
                 }
             });
         });
+
+
+
+
+
     }
     pass = (event) => {
         event.preventDefault();
@@ -215,7 +239,7 @@ export class InputConfirmationLetter extends Component {
                                             </div>
                                             {this.state.showCIN ? <div id="errordiv" className="container-fluid">Please fill out CIN field * </div> : null}
                                             <div className=" input-group w-50 container-fluid">
-                                                <MDBBtn id="generate" type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>
+                                                <MDBBtn id="genrate" type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>
                                             </div>
                                         </form>
                                     </div>
