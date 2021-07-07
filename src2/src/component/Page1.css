@@ -1,0 +1,42 @@
+
+#pageA4{
+        background: white;
+        display: block;
+        margin: 0 auto;
+        
+        width:31cm;
+        height: 44.7cm;
+       
+}
+
+body {margin-top: 0px;margin-left: 0px;
+}
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+li{
+    font-size: x-large;
+}
+
+
+
+body {margin-top: 0px;margin-left: 0px;
+ 
+}
+
+* {
+    font-family: sans-serif;
+}
+
+li {
+    font-size: large;
+}
+p , td,strong{
+    font-size: large;
+}
+
+@Page {
+    size:auto;
+    margin:0mm;
+}
